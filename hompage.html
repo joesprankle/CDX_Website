@@ -1,0 +1,358 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Chromadex.Model;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ChromaDex-Home</title>
+	<link media="all" rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/cdxassets/css/main.css">
+	<link rel="stylesheet" href="https://use.typekit.net/lmb6xwd.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="https://s3-us-west-2.amazonaws.com/cdxassets/js/jquery-3.3.1.min.js" defer><\/script>')</script>
+	<script src="https://s3-us-west-2.amazonaws.com/cdxassets/js/jquery.main.js" defer></script>
+	<script src="~/Scripts/window/jquery.window.js"></script>
+	<link link="" rel="icon" type="image/x-icon" href="https://s3-us-west-2.amazonaws.com/cdxassets/images/favicon.ico">
+</head>
+<body>
+	
+	
+	
+	
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="nav-holder">
+					<strong class="logo">
+						<a href="#"><img src="https://s3-us-west-2.amazonaws.com/cdxassets/images/logo.svg" alt="ChromaDex"></a>
+					</strong>
+					<a href="#" class="nav-opener"><span>Menu</span></a>
+					<div class="nav-drop">
+						<div class="inner-drop">
+							<a href="#" class="nav-opener close"><span>Close</span></a>
+							<div class="top-block">
+								
+								@if(Umbraco.MemberIsLoggedOn()){
+  <ul class="user-list">
+									<li>
+								<a class="lnkMyCart" href="~/my-cart/related-items">
+                                        My Cart (
+								@if (Session["cart"] != null){
+									                                                List<Product> cartItems = Session["cart"] as List<Product>;
+
+                                                if (@cartItems.Count == 1)
+                                                {
+                                                    <span id="mycartitems">1 item</span>
+                                                }
+                                                else if (@cartItems.Count > 1)
+                                                {
+                                                    <span id="mycartitems">@cartItems.Count Items</span>
+                                                }
+                                                else
+                                                {
+                                                    <span id="mycartitems">0 Item</span>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span id="mycartitems">0 Item</span>
+                                            }
+
+
+									
+								}
+								
+								</li>
+									<li><a href="https://chromadex.com/my-account/welcome/">My Account</a></li>
+									<li><a href="https://chromadex.com/Logout/">Logout</a></li>
+								</ul>
+  }
+else
+  {
+ <ul class="user-list">
+								
+	 								<li>
+								<a class="lnkMyCart" href="~/my-cart/related-items">
+                                        My Cart (
+								@if (Session["cart"] != null){
+									                                                List<Product> cartItems = Session["cart"] as List<Product>;
+
+                                                if (@cartItems.Count == 1)
+                                                {
+                                                    <span id="mycartitems">1 item</span>
+                                                }
+                                                else if (@cartItems.Count > 1)
+                                                {
+                                                    <span id="mycartitems">@cartItems.Count Items</span>
+                                                }
+                                                else
+                                                {
+                                                    <span id="mycartitems">0 Item</span>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span id="mycartitems">0 Item</span>
+                                            }
+
+
+									
+								}
+								
+								</li>
+									<li><a href="https://chromadex.com/registration/">Register</a></li>
+									<li><a href="https://chromadex.com/Login/">Login</a></li>
+								</ul>
+  } 
+					
+								<form action="https://chromadex.com/search" class="search-form" method="get">
+									<div class="input-wrapper">
+										<input type="search" placeholder="Search" name="SearchParam">
+										<button type="submit" class="icon-search"></button>
+									</div>
+								</form>
+							</div>
+							<ul class="main-nav">
+
+
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">about</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/locations/">Locations</a>
+										<a href="https://www.chromadex.com/board-of-directors/">Board of Directors</a>
+										<a href="https://www.chromadex.com/scientific-advisors/">Scientific Advisors</a>
+										<a href="https://www.chromadex.com/management/">Management</a>
+										<a href="https://www.chromadex.com/careers/">Careers</a>
+										<a href="https://www.chromadex.com/international/">International</a>
+										<a href="https://www.chromadex.com/contact-us/">Contact Us</a>
+										<a href="https://www.chromadex.com/patents/">Patents</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">ingredients</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/ingredients-overview/">Ingredients Overview</a>
+										<a href="https://www.chromadex.com/niagen/">NIAGEN</a>
+										<a href="https://www.chromadex.com/immulina/">IMMULINA</a>
+										<a href="https://www.chromadex.com/anthorigin/">AnthOrigin</a>
+										<a href="https://www.chromadex.com/patents/">Patents</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">standards</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/standards-overview/">Standards Overview</a>
+										<a href="https://www.chromadex.com/phytochemical-reference-standards/">Phytochemical
+											Reference Standards</a>
+										<a href="https://www.chromadex.com/botanical-reference-materials/">Botanical Reference
+											Materials</a></li>
+										<a href="https://www.chromadex.com/natural-product-libraries/">Natural Product Libraries</a>
+										<a href="https://www.chromadex.com/international/">International</a>
+										<a href="https://www.chromadex.com/tech-tips/">Tech Tips</a>
+										<a href="https://www.chromadex.com/chemical-family-information/">Chemical Family
+											Information</a>
+										<a href="https://www.chromadex.com/chromadex-catalog/">ChromaDex Catalog</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">consulting</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/consulting-overview/">Consulting Overview</a>
+										<a href="https://www.chromadex.com/spherix-consulting-scientific-regulatory/">Spherix
+											Consulting - Scientific &amp; Regulatory</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">analytics</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/contract-research-service/">Contract Research Service</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="http://investors.chromadex.com/phoenix.zhtml?c=212121&p=irol-irhome">investor
+											relations</a></li>
+									<div class="dropdown-content">
+
+									</div>
+								</div>
+								<div class="dropdown">
+									<li><a class="dropbtn" href="https://www.chromadex.com/about-us/">news</a></li>
+									<div class="dropdown-content">
+										<a href="https://www.chromadex.com/media-coverage/">Media Coverage</a>
+										<a href="https://www.chromadex.com/calendar-of-events/">Calendar of Events</a>
+										<a href="https://www.chromadex.com/press-releases/">Press Releases</a>
+										<a href="https://www.chromadex.com/newsletters/">Newsletters</a>
+									</div>
+								</div>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+	<div class="intro">
+			<div class="container">
+				<div class="bg-img" style="background-image: url(https://s3-us-west-2.amazonaws.com/cdxassets/images/bg-img-1.jpg);"></div>
+				<div class="intro-content">
+					<div class="block-text">
+						<h1>An integrated global nutraceutical company devoted to improving the way people age.</h1>
+						<p>Breakthrough science-based products. Industry-leading reference standards. Expert consulting services.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main id="main">
+			<div class="visual-block text-blue bg-light">
+				<div class="container">
+					<div class="bg-img" style="background-image: url(https://s3-us-west-2.amazonaws.com/cdxassets/images/bg-img-2.jpg);"></div>
+					<div class="intro-content">
+						<div class="block-text">
+							<h2><a href="#">Our Flagship Product <br class="rwd-break">TRU NIAGEN<sup>®</sup></a></h2>
+							<span class="sub-heading">Tru Niagen<sup>®</sup> is helping the world Age Better.<sup>®</sup> Live Better. *</span>
+							<p>In 2012, ChromaDex licensed a set of Dartmouth patents for the nutritional and therapeutic uses of our breakthrough ingredient nicotinamide riboside (NR) and brought it to market as NIAGEN&reg;. In more than four clinical trials, NIAGEN&reg; was shown to safely and effectively increase levels of a vital cellular resource that supports healthy living and aging.* This extraordinary product is now available to consumers worldwide as TRU NIAGEN&reg;. </p>
+							<a href="https://www.truniagen.com/product_page.html?utm_source=ChromaDex&utm_medium=Referral&utm_campaign=Home_page" target="_blank" class="btn">Shop Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="base-section">
+				<div class="container">
+					<div class="section-heading text-center">
+						<h2>Gold-Standard Services</h2>
+					</div>
+					<div class="service-section">
+						<div class="service-col">
+							<div class="base-block">
+								<div class="block-img">
+									<img src="https://s3-us-west-2.amazonaws.com/cdxassets/images/service-img-1.jpg" alt="image description">
+								</div>
+								<div class="block-text">
+									<h2>Reference Standards</h2>
+									<p>ChromaDex is the leading provider of phytochemical reference standards, botanical reference materials, and research-grade materials for the natural products industry. We now list over 1800 phytochemicals and 400 botanical reference materials in our catalog.</p>
+									<a href="https://chromadex.com/standards-overview/" class="btn">learn more</a>
+								</div>
+							</div>
+						</div>
+						<div class="service-col">
+							<div class="base-block">
+								<div class="block-img">
+									<img src="https://s3-us-west-2.amazonaws.com/cdxassets/images/service-img-2.jpg" alt="image description">
+								</div>
+								<div class="block-text">
+									<h2>Innovative Ingredients</h2>
+									<p>ChromaDex leverages its complementary business units to discover, acquire, develop, and commercialize patented and proprietary ingredient technologies. Our portfolio of patented ingredient technologies includes: NIAGEN® nicotinamide riboside; IMMULINA™, a spirulina extract; and AnthOrigin™, anthocyanins derived from a domestically-produced, water-extracted purple corn.</p>
+									<a href="https://chromadex.com/ingredients-overview/" class="btn">learn more</a>
+								</div>
+							</div>
+						</div>
+						<div class="service-col">
+							<div class="base-block">
+								<div class="block-img">
+									<img src="https://s3-us-west-2.amazonaws.com/cdxassets/images/service-img-3.jpg" alt="image description">
+								</div>
+								<div class="block-text">
+									<h2>ChromaDex Consulting</h2>
+									<p>ChromaDex Consulting Services provide expert advice, guidance, and strategic applications which allow you to maneuver your business through a highly competitive and regulated industry. ChromaDex Consulting has two separate arms to help with your specified needs: Spherix Consulting and a partnership with Joy’s Quality Management Systems (JQMS).</p>
+									<a href="https://chromadex.com/consulting-overview/" class="btn">learn more</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="base-section bg-light text-blue">
+				<div class="container">
+					<div class="content-block">
+						<div class="bg-img" style="background-image: url(https://s3-us-west-2.amazonaws.com/cdxassets/images/investors-img.jpg);"></div>
+						<div class="block-text">
+							<div class="section-heading">
+								<h2>Investor Relations</h2>
+							</div>
+							<p>ChromaDex scientists partner with leading universities and research institutions worldwide to identify and develop novel, science-based ingredients and products. ChromaDex also offers industry-leading reference standards and consulting services. Its flagship ingredient, NIAGEN® nicotinamide riboside, sold directly to consumers as TRU NIAGEN<sup>®</sup>, is backed with clinical and scientific research, as well as extensive IP protection.</p>
+							<a href="http://investors.chromadex.com/phoenix.zhtml?c=212121&p=irol-irhome" class="btn">learn more</a>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<div class="container">
+				<div class="footer-row">
+					<div class="footer-col">
+						<div class="footer-block">
+							<strong class="logo">
+								<a href="#">
+									<img src="https://s3-us-west-2.amazonaws.com/cdxassets/images/logo-white.svg" alt="ChromaDex">
+								</a>
+							</strong>
+						</div>
+					</div>
+					<div class="footer-col">
+						<div class="block-list">
+							<div class="footer-block">
+								<ul class="footer-nav">
+									<li><a href="https://chromadex.com/about-us/">About</a></li>
+									<li><a href="https://chromadex.com/ingredients-overview/">Ingredients</a></li>
+									<li><a href="https://chromadex.com/standards-overview/">Standards</a></li>
+									<li><a href="https://chromadex.com/consulting-overview/">Consulting</a></li>
+									<li><a href="https://chromadex.com/contract-research-service/">Analytics</a></li>
+									<li><a href="http://investors.chromadex.com/phoenix.zhtml?c=212121&p=irol-irhome">Investor Relations</a></li>
+									<li><a href="https://chromadex.com/media-coverage/">News</a></li>
+								</ul>
+							</div>
+							<div class="footer-block">
+								<ul class="footer-nav">
+									<li><a href="https://chromadex.com/privacy-policy/">Privacy Policy</a></li>
+									<li><a href="https://chromadex.com/terms-of-use/">Terms of Use</a></li>
+									<li><a href="https://chromadex.com/international/">International</a></li>
+									<li><a href="https://chromadex.com/contact-us/">Contact</a></li>
+									<li><a href="https://chromadex.com/site-map/">Site Map</a></li>
+									<li><a href="https://chromadex.com/help/">Help</a></li>
+									<li><a href=""></a></li>
+								</ul>
+							</div>
+							<div class="footer-block">
+								<address>
+									ChromaDex, Inc. <br>
+									10005 Muirlands Blvd. Ste. G <br>
+									Irvine, CA, USA 92618 <br>
+									<a href="mailto:&#115;&#097;&#108;&#101;&#115;&#064;&#099;&#104;&#114;&#111;&#109;&#097;&#100;&#101;&#120;&#046;&#099;&#111;&#109;">&#115;&#097;&#108;&#101;&#115;&#064;&#099;&#104;&#114;&#111;&#109;&#097;&#100;&#101;&#120;&#046;&#099;&#111;&#109;</a><br>
+									<a href="tel:9494190288">(949) 419-0288</a>
+								</address>
+							</div>
+						</div>
+					</div>
+					<div class="footer-col">
+						<div class="footer-block">
+							<span>Follow Us</span>
+							<ul class="social">
+								<li>
+									<a href="http://www.facebook.com/pages/ChromaDex-Inc/138275969574013" class="icon-facebook"></a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/company/chromadex/" class="icon-linkedin"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/chromadex?lang=en" class="icon-twitter"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-col full-width">
+						<div class="copyright">
+							<div class="alert-block">
+								<p>*These statements have not been evaluated by the Food and Drug Administration.<br> This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+							</div>
+							<p>&copy; 2018 <a href="#">ChromaDex</a>, Inc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
+
